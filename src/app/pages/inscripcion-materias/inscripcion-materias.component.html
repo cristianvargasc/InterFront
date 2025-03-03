@@ -1,0 +1,45 @@
+<div class="inscripcion-materias-container">
+    <h2>Inscripción de Materias</h2>
+    <form (ngSubmit)="onSubmit()">
+      <table mat-table [dataSource]="materias" class="mat-elevation-z8">
+  
+        <!-- ID de Materia Column -->
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef> ID </th>
+          <td mat-cell *matCellDef="let materia"> {{materia.id}} </td>
+        </ng-container>
+  
+        <!-- Nombre de Materia Column -->
+        <ng-container matColumnDef="nombreMateria">
+          <th mat-header-cell *matHeaderCellDef> Nombre </th>
+          <td mat-cell *matCellDef="let materia"> {{materia.nombreMateria}} </td>
+        </ng-container>
+  
+        <!-- ID de Docente Column -->
+        <ng-container matColumnDef="idDocente">
+          <th mat-header-cell *matHeaderCellDef> ID Docente </th>
+          <td mat-cell *matCellDef="let materia"> {{materia.idDocente}} </td>
+        </ng-container>
+  
+        <!-- Nombre de Docente Column -->
+        <ng-container matColumnDef="nombreDocente">
+          <th mat-header-cell *matHeaderCellDef> Nombre Docente </th>
+          <td mat-cell *matCellDef="let materia"> {{materia.nombreDocente}} </td>
+        </ng-container>
+  
+        <!-- Checkbox Column -->
+        <ng-container matColumnDef="select">
+          <th mat-header-cell *matHeaderCellDef> Seleccionar </th>
+          <td mat-cell *matCellDef="let materia">
+            <mat-checkbox (change)="onCheckboxChange($event, materia)"></mat-checkbox>
+          </td>
+        </ng-container>
+  
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+  
+      <button mat-raised-button type="submit">Inscribir Materias</button>
+    </form>
+  </div>
+  

@@ -1,0 +1,33 @@
+<form (ngSubmit)="onRegister()">
+    <mat-form-field>
+      <mat-label>Nombre Completo</mat-label>
+      <input matInput [(ngModel)]="registerData.Nombre" name="Nombre" required>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Tipo de Documento</mat-label>
+      <mat-select [(ngModel)]="registerData.TipoDocumento" name="TipoDocumento" required>
+        <mat-option *ngFor="let tipo of tiposDocumento" [value]="tipo.id">{{tipo.nombre}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Número de Documento</mat-label>
+      <input matInput [(ngModel)]="registerData.NumeroDocumento" name="NumeroDocumento" type="number" minlength="7" required>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Correo</mat-label>
+      <input matInput [(ngModel)]="registerData.Correo" name="Correo" type="email" required>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Teléfono</mat-label>
+      <input matInput [(ngModel)]="registerData.Telefono" name="Telefono" type="number" minlength="7" maxlength="10" required>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Dirección</mat-label>
+      <input matInput [(ngModel)]="registerData.Direccion" name="Direccion" required>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Fecha de Nacimiento</mat-label>
+      <input matInput [(ngModel)]="registerData.FechaNacimiento" name="FechaNacimiento" type="date" required>
+    </mat-form-field>
+    <button mat-raised-button type="submit">Registrar</button>
+</form>
